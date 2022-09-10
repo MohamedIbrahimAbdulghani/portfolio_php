@@ -5,8 +5,9 @@ if(empty($_SESSION["user"])) {
 }
 
 include_once "library/portfolio.php";
+$porjects = new classPortfolio();
+$porjects = $porjects->getPortfolios();
 
-$porjects = getPortfolios();
 
 ?>
 <!DOCTYPE html>

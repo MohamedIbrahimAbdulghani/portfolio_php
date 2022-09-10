@@ -3,7 +3,8 @@ session_start();
 
 include_once "dashboard/library/portfolio.php";
 
-$projects = getPortfolios();
+$projects = new classPortfolio();
+$projects = $projects->getPortfolios();
 
 
 ?>

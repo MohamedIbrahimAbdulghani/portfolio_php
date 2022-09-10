@@ -24,7 +24,8 @@ if(isset($_POST["description"])) {
       $file_name = "";
     }
 
-    $result = updatePortfolio($projectid, $description, $image_name);
+    $result = new classPortfolio();
+    $result = $result->updatePortfolio($projectid, $description, $image_name);
 
     if($result == true) {
       header("Location: allportfolios.php");
@@ -35,7 +36,8 @@ if(isset($_POST["description"])) {
 } else {
   $projectid = $_GET["projectid"];
 
-  $data = getPortfolioById($projectid);
+  $data = new classPortfolio();
+  $data = $data->getPortfolioById($projectid);
 }
 
 ?>

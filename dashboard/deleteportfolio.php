@@ -7,7 +7,8 @@ if(empty($_SESSION["user"])) {
 
 include_once "library/portfolio.php";
 
-$result = deletePortfolio($_GET["projectid"]);
+$result = new classPortfolio();
+$result = $result->deletePortfolio($_GET["projectid"]);
 
 if($result == 1) {
     header("Location: allportfolios.php");

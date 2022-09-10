@@ -19,7 +19,8 @@ if(isset($_POST["description"])) {
 
 
     if(!empty($description) && !empty($image_name)) {
-      $res = addPortfolio($image_name, $description, $user_id);
+      $res = new classPortfolio();
+      $res = $res->addPortfolio($image_name, $description, $user_id);
 
     if($res == true) {
       $success = "Project inserted";
