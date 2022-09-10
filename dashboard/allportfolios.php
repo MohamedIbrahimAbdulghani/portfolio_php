@@ -5,6 +5,7 @@ if(empty($_SESSION["user"])) {
 }
 
 include_once "library/portfolio.php";
+
 $porjects = getPortfolios();
 
 ?>

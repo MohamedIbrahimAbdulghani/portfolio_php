@@ -1,6 +1,5 @@
 <?php
 
-
 function addPortfolio($image, $description, $user_id) {
     $connection_database = mysqli_connect("localhost", "root", "", "portfolio");
     $insert_portfolio = "INSERT INTO `portfolio` (`image`, `description`, `user_id`) VALUES ('$image', '$description', '$user_id') ";
