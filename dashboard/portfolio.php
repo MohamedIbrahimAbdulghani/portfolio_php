@@ -22,12 +22,12 @@ if(isset($_POST["description"])) {
       $res = new classPortfolio();
       $res = $res->addPortfolio($image_name, $description, $user_id);
 
-    if($res == true) {
-      $success = "Project inserted";
+
+    $_SESSION["success"] = "Project inserted";
     } else {
-      $error = "Project is not inserted";
+      $_SESSION["error"] = "Project is not inserted";
     }
-    }
+
 
 }
 
@@ -297,15 +297,20 @@ if(isset($_POST["description"])) {
 
         <!-- Start validation -->
         <?php if(isset($description) || isset($image_name)): ?>
-            <div class="alert <?php if(isset($success)) : ?> alert-success  <?php else: ?> alert-danger <?php endif; ?> alert-dismissible">
+          
+
+          <div class="alert <?php if(isset($_SESSION["success"])): ?> alert-success  <?php elseif(isset($_SESSION["error"])): ?> alert-danger <?php endif; ?> alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <!-- <h5><i class="icon fas fa-ban"></i> Errors!</h5> -->
                     <ul>
                       <li>
-                          <?php if(!empty($success)) : ?> project is insert  <?php else: ?> project is not inserted <?php endif; ?>
+                        <?php if(isset($_SESSION["success"])) echo $_SESSION["success"]; else echo $_SESSION["error"];?>
                       </li>
                     </ul>
+
+                    <?php unset($_SESSION["success"]); unset($_SESSION["error"])  ?>
             </div>
+
           <?php endif; ?>
 
           <!-- End validation -->
